@@ -8,9 +8,7 @@ s.waitForBoot{
 		SynthDef(\sampy, {
 			arg buf=0, kbus=0;
 			var sig, rms;
-			//sig = SinOsc.ar();
 			sig = PlayBuf.ar(1, buf, loop:1, );
-			//rms = Amplitude.kr(sig);
 			rms = Amplitude.kr(sig).ampdb.linlin(-30.0, 0.0, 0.0, 1.0);
 			Out.kr(kbus, rms);
 			Out.ar(0, sig);
